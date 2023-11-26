@@ -26,8 +26,7 @@ from pathlib import Path
 import importlib_metadata
 from vnpy.trader.app import BaseApp
 
-from .engine import AlgoEngine, APP_NAME
-
+from .engine import APP_NAME, AlgoEngine
 
 try:
     __version__ = importlib_metadata.version("vnpy_algotrading")
@@ -44,4 +43,5 @@ class AlgoTradingApp(BaseApp):
     display_name: str = "算法交易"
     engine_class: AlgoEngine = AlgoEngine
     widget_name: str = "AlgoManager"
+    rpc_server = "AlgoRpcServer"
     icon_name: str = str(app_path.joinpath("ui", "algo.ico"))
